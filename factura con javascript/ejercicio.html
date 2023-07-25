@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
     <body>
+        
         <div class="container">
             <table id="factura" class="table table-striped">
                 <thead class="modal-header">
@@ -45,7 +46,6 @@
             </div>
         </div>
     <script>
-        
             let canasta = [["nombre", 2 , 70],["nombre" , 2 , 65]]
 
             function agregarProducto(){
@@ -55,11 +55,27 @@
 
                 canasta.push([producto , cantidad , precio])
                 hacerTabla()
+                
             }
 
             function hacerTabla(){
-                console.log("haciendo tabla ! jajajajajajajaa")
+                let tabla = document.getElementById("factura")
+                let er = document.createElement("td")
+                for(let i = 0 ; i < canasta.length; i++){
+                    er.innerHTML = canasta[i]
+                    tabla.appendChild(er)
+                }
+                
             }
+            function fecha(){ 
+
+            var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+            var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+            var f=new Date();
+            document.write(diasSemana[f.getDay()] + " " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+          }  
+          
+
         
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
